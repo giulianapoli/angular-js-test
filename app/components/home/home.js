@@ -19,7 +19,8 @@ function Test($scope) {
   $scope.title = 'HELLO WORLD';
 
 
-  data.people = $scope.response;
+  data.people = $scope.response1;
+  data.peopleReqres = $scope.response2;
 
   data.todos = [
     { text: 'learn AngularJS', done: true },
