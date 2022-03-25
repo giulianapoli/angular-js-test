@@ -7,23 +7,11 @@ app.config([
   '$routeProvider',
   function ($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('');
-    $routeProvider.otherwise({ redirectTo: '/details' });
+    $routeProvider.otherwise({ redirectTo: '/home' });
   },
 ]);
 
-app.controller('myCtrl', function($http, $scope) {
-  $http.get("data/data.json")
-    .then((res) => {
-      $scope.response1 = res.data;
-    }, function(error){
-    console.log(error);
-  })
-
-  $http.get('https://reqres.in/api/users')
-  .then(res=>{
-    $scope.response2 = res.data.data;
-  }, function(error){
-    console.log(error)
-  })
-
-});
+app.controller('myCtrl', ['$scope', 'httpService', function(scope, httpService) {
+  httpService.getPeople().then(res=>scope.response1 = res)
+  httpService.getPeopleResreq().then(res=>scope.response2 = res)
+}]);
