@@ -14,32 +14,37 @@ angular
 
   .controller('homeCtrl', Test);
 function Test($scope) {
+  const data = this;
+
   $scope.title = 'HELLO WORLD';
-  const todoList = this;
-  todoList.todos = [
+
+
+  data.people = $scope.response;
+
+  data.todos = [
     { text: 'learn AngularJS', done: true },
     { text: 'build an AngularJS app', done: false },
   ];
 
-  todoList.addTodo = () => {
-    todoList.todos.push({ text: todoList.todoText, done: false });
-    todoList.todoText = '';
+  data.addTodo = () => {
+    data.todos.push({ text: todoList.todoText, done: false });
+    data.todoText = '';
   };
 
-  todoList.remaining = () => {
+  data.remaining = () => {
     let count = 0;
-    angular.forEach(todoList.todos, (todo) => {
+    angular.forEach(data.todos, (todo) => {
       count += todo.done ? 0 : 1;
     });
     return count;
   };
 
-  todoList.archive = () => {
-    console.log(todoList);
-    const oldTodos = todoList.todos;
-    todoList.todos = [];
+  data.archive = () => {
+    console.log(data);
+    const oldTodos = data.todos;
+    data.todos = [];
     angular.forEach(oldTodos, (todo) => {
-      if (!todo.done) todoList.todos.push(todo);
+      if (!todo.done) data.todos.push(todo);
     });
   };
 }

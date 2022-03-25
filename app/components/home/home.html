@@ -1,19 +1,25 @@
 <div class="container">
   <h2 class="text-center">{{title}}</h2>
-  <div class="container" ng-controller="homeCtrl as todoList">
-    <span>{{todoList.remaining()}} of {{todoList.todos.length}} remaining</span>
-    [ <a href="" ng-click="todoList.archive()">archive</a> ]
+  <div class="container" ng-controller="homeCtrl as data">
+    <span>{{data.remaining()}} of {{data.todos.length}} remaining</span>
+    [ <a href="" ng-click="data.archive()">archive</a> ]
     <ul class="unstyled">
-      <li ng-repeat="todo in todoList.todos">
+      <li ng-repeat="todo in data.todos">
         <label class="checkbox">
           <input type="checkbox" ng-model="todo.done" />
           <span class="done-{{todo.done}}">{{todo.text}}</span>
         </label>
       </li>
     </ul>
-    <form ng-submit="todoList.addTodo()">
-      <input class="form-control" type="text" ng-model="todoList.todoText" size="30" placeholder="add new todo here" />
+    <form ng-submit="data.addTodo()">
+      <input class="form-control" type="text" ng-model="data.todoText" size="30" placeholder="add new todo here" />
       <input class="btn btn-primary w-100" type="submit" value="add" />
     </form>
+    <p class='mt-5'>Dati in get da app module</p>
+    <div ng-repeat="item in data.people">
+      <div class="people-data">{{ item.name }}</div>
+      <div class="people-data">{{ item.surname }}</div>
+      <div class="people-data">{{ item.age }}</div>
+    </div>
   </div>
 </div>

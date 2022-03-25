@@ -1,7 +1,8 @@
 'use strict';
+var app = angular.module('myApp', ['ngRoute', 'myApp.home', 'myApp.details', 'myApp.version'])
 
 // Declare app level module which depends on views, and core components
-angular.module('myApp', ['ngRoute', 'myApp.home', 'myApp.details', 'myApp.version']).config([
+app.config([
   '$locationProvider',
   '$routeProvider',
   function ($locationProvider, $routeProvider) {
@@ -9,3 +10,12 @@ angular.module('myApp', ['ngRoute', 'myApp.home', 'myApp.details', 'myApp.versio
     $routeProvider.otherwise({ redirectTo: '/details' });
   },
 ]);
+
+app.controller('myCtrl', function($http, $scope) {
+  $http.get("data/data.json")
+    .then((res) => {
+      $scope.response = res.data;
+    }, function(error){
+    console.log(error);
+  })
+});
