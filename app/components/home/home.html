@@ -21,5 +21,19 @@
       <div class="people-data">{{ item.surname }}</div>
       <div class="people-data">{{ item.age }}</div>
     </div>
+    <div>
+      <h2 class="mt-5">Dati presi da reqres.in</h2>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm" ng-repeat="person in data.peopleReqres">
+            <div class="d-flex flex-column justify-content-center">
+              <h3>{{ person.first_name }}</h3>
+              <p>{{ person.email }}</p>
+              <img src="{{ person.avatar }}" alt="">            
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
