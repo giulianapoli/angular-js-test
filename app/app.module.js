@@ -15,3 +15,9 @@ app.controller('myCtrl', ['$scope', 'httpService', function(scope, httpService) 
   httpService.getPeople().then(res=>scope.response1 = res)
   httpService.getPeopleResreq().then(res=>scope.response2 = res)
 }]);
+
+app.controller('controller2', ['$log', '$scope', function($log, $scope) {
+  $log.log('Hello');
+  $scope.saluto = 'Hello';
+
+}]);
