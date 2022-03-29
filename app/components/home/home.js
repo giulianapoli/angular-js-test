@@ -2,6 +2,7 @@
 
 angular
   .module('myApp.home', ['ngRoute'])
+
   .config([
     '$routeProvider',
     function ($routeProvider) {
@@ -12,40 +13,7 @@ angular
     },
   ])
 
-  .controller('homeCtrl', Test);
-function Test($scope) {
-  const data = this;
-
-  $scope.title = 'HELLO WORLD';
-
-
-  data.people = $scope.response1;
-  data.peopleReqres = $scope.response2;
-
-  data.todos = [
-    { text: 'learn AngularJS', done: true },
-    { text: 'build an AngularJS app', done: false },
-  ];
-
-  data.addTodo = () => {
-    data.todos.push({ text: todoList.todoText, done: false });
-    data.todoText = '';
-  };
-
-  data.remaining = () => {
-    let count = 0;
-    angular.forEach(data.todos, (todo) => {
-      count += todo.done ? 0 : 1;
-    });
-    return count;
-  };
-
-  data.archive = () => {
-    console.log(data);
-    const oldTodos = data.todos;
-    data.todos = [];
-    angular.forEach(oldTodos, (todo) => {
-      if (!todo.done) data.todos.push(todo);
-    });
-  };
-}
+  .controller('homeCtrl', ['$scope', '$location', function ($scope, $location) {
+    $scope.userPosition = $location.path()
+    $scope.$emit('eventHome', $scope.userPosition)
+  }]);

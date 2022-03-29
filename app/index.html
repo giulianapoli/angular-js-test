@@ -28,19 +28,22 @@
     ></script>
   </head>
   <body>
-    <ul class="menu">
-      <li><a href="#/home">view1</a></li>
-      <li><a href="#/details">view2</a></li>
-    </ul>
-
+    <header people-obj="response2"></header>
+    <div class="container-fluid">
+      <div class="row flex-nowrap">
+        <sidenav user-position="userPosition"></sidenav>
+        <div class="col py-3 backgroundDarker">
+            <div ng-view></div>
+          </div>
+      </div>
+    </div>    
+    
     <!--[if lt IE 7]>
       <p class="browsehappy">
         You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your
         experience.
       </p>
     <![endif]-->
-
-    <div ng-view></div>
 
     <!-- <div>AngularJS seed app: v<span app-version></span></div> -->
 
@@ -52,6 +55,8 @@
     <script src="app.module.js"></script>
     <script src="components/home/home.js"></script>
     <script src="components/details/details.js"></script>
+    <script src="directives/header/header.js"></script>
+    <script src="directives/sidenav/sidenav.js"></script>
     <script src="services/http-service.js"></script>
     <script src="core/version/version.js"></script>
     <script src="core/version/version-directive.js"></script>

@@ -1,1 +1,39 @@
-<p>Page details</p>
+<div class="container colorText">
+  <h2 class="text-center">{{title}}</h2>
+  <div class="container" ng-controller="detailsCtrl as data">
+    <span>{{data.remaining()}} of {{data.todos.length}} remaining</span>
+    [ <a href="" ng-click="data.archive()">archive</a> ]
+    <ul class="unstyled">
+      <li ng-repeat="todo in data.todos">
+        <label class="checkbox">
+          <input type="checkbox" ng-model="todo.done" />
+          <span class="done-{{todo.done}}">{{todo.text}}</span>
+        </label>
+      </li>
+    </ul>
+    <form ng-submit="data.addTodo()">
+      <input class="form-control" type="text" ng-model="data.todoText" size="30" placeholder="add new todo here" />
+      <input class="btn btn-primary w-100" type="submit" value="add" />
+    </form>
+    <p class='mt-5'>Dati in get da app module</p>
+    <div ng-repeat="item in data.people">
+      <div class="people-data">{{ item.name }}</div>
+      <div class="people-data">{{ item.surname }}</div>
+      <div class="people-data">{{ item.age }}</div>
+    </div>
+    <div>
+      <h2 class="mt-5">Dati presi da reqres.in</h2>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm" ng-repeat="person in data.peopleReqres">
+            <div class="d-flex flex-column justify-content-center">
+              <h3>{{ person.first_name }}</h3>
+              <p>{{ person.email }}</p>
+              <img src="{{ person.avatar }}" alt="">            
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

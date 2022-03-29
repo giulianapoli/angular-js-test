@@ -1,5 +1,9 @@
 /* app css stylesheet */
 
+div{
+  background-color: #242424;
+}
+
 .menu {
   list-style: none;
   border-bottom: 0.1em solid black;
@@ -26,4 +30,92 @@
 
 .people-data {
   display: inline-block;
+}
+
+.myNavbar{
+  padding: 0.5%;
+  border-bottom: 0.5px solid white;
+}
+
+.divLogo{
+  width: 10%;
+}
+
+.inputSearch{
+  padding: 0.5rem;
+  background-color: #070707;
+  color: white;
+  border: none;
+  width: 40rem;
+  height: 3rem;
+}
+
+.buttonSearch{
+  background-color: #484848;
+  border: none;
+  color: white;
+  padding: 0 15px;
+}
+
+.micSearch{
+  border-radius: 100%;
+  border: none;
+  background-color: #2e2e2e;
+  color: white;
+  padding: 0 15px;
+  margin-left: 10px;
+}
+
+.userImg{
+  width: 40%;
+  border-radius: 100%;
+}
+
+.nav-item{
+  width: 500%;
+  padding-left: 25%;
+}
+
+.nav-item:hover{
+  width: 500%;
+  background-color: #323232;
+}
+
+.nav-item-active{
+  width: 500%;
+  background-color: #484848;
+}
+
+.colorText{
+  color: white;
+}
+
+.backgroundHome{
+  background-color: #181818;
+}
+
+.backgroundDarker{
+  background-color: #181818;
+}
+
+/*Custom Scrollbar*/
+::-webkit-scrollbar {
+  width: 12px;
+  padding: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #2e2e2e;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #b6b6b6 ; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #949494 ; 
 }

@@ -1,6 +1,6 @@
 angular.module('myApp').service('httpService', ['$http', function(http){
   this.getPeople = function(){
-    return http.get("data/data.json")
+    return http.get("assets/data/data.json")
       .then((res) => {
         return res.data;
       }, function(error){

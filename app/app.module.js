@@ -11,7 +11,10 @@ app.config([
   },
 ]);
 
-app.controller('myCtrl', ['$scope', 'httpService', function(scope, httpService) {
+app.controller('myCtrl', ['$scope', '$location', 'httpService', function(scope, location, httpService) {
+  scope.$on('eventHome', (event, userPosition)=>scope.userPosition=userPosition)
+  scope.$on('eventDetails', (event, userPosition)=>scope.userPosition=userPosition)
+
   httpService.getPeople().then(res=>scope.response1 = res)
   httpService.getPeopleResreq().then(res=>scope.response2 = res)
 }]);
